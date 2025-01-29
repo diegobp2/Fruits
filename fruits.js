@@ -105,6 +105,7 @@ btnRight.addEventListener("click",ir_a_derecha)
         }
     }
 
+
 let startX;
 
 document.addEventListener('touchstart', (event) => {
@@ -115,15 +116,15 @@ document.addEventListener('touchmove', (event) => {
     const moveX = event.touches[0].clientX;
     const diffX = startX - moveX;
 
-    if (Math.abs(diffX) > 50) { // Threshold for swipe
-        if (diffX > 0) {
-            ir_a_derecha(); // Swipe left
-        } else {
+    if (diffX > 50) { // Threshold for swipe
+        ir_a_derecha(); // Swipe left
+        
+     } else if(diffX > 50){
             ir_a_izquierda(); // Swipe right
         }
         startX = null; // Reset startX after swipe
     }
-});
+);
 
 mover()
 function actualizar_vista(){
